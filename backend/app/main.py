@@ -1,3 +1,4 @@
+import os
 from contextlib import asynccontextmanager
 
 import asyncpg
@@ -62,7 +63,7 @@ def create_app() -> FastAPI:
 
     @app.get("/health", tags=["ops"])
     async def health() -> dict[str, str]:
-        return {"status": "ok"}
+        return {"status": "ok", "environment": os.getenv("APP_ENV", "no-definido")}
 
     return app
 

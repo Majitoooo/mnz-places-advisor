@@ -16,7 +16,8 @@ applications:
           commands:
             # VITE_API_BASE_URL llega desde las variables de entorno de cada rama en Amplify
             - echo "Compilando con VITE_API_BASE_URL=$VITE_API_BASE_URL"
-            - npm run build
+            # Identifica ambiente (rama) y versión (commit) en la página
+            - VITE_APP_ENV="$AWS_BRANCH" VITE_APP_VERSION="$(git rev-parse --short HEAD 2>/dev/null || echo desconocida)" npm run build
       artifacts:
         baseDirectory: dist
         files:

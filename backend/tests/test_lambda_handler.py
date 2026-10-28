@@ -39,4 +39,6 @@ def test_health_via_lambda_event():
     asyncio.set_event_loop(asyncio.new_event_loop())
     response = handler(_function_url_event("/health"), None)
     assert response["statusCode"] == 200
-    assert json.loads(response["body"]) == {"status": "ok"}
+    body = json.loads(response["body"])
+    assert body["status"] == "ok"
+    assert "environment" in body
