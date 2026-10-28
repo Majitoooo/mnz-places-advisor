@@ -6,6 +6,7 @@ import HeroSection from './components/HeroSection'
 import PlacesGrid from './components/PlacesGrid'
 import ChatPanel from './components/ChatPanel'
 import Footer from './components/Footer'
+import EnvBanner from './components/EnvBanner'
 
 /**
  * Componente raíz — composición pura.
@@ -18,6 +19,7 @@ function App() {
 
   return (
     <>
+      <EnvBanner />
       <main className="mx-auto w-full max-w-5xl px-4 py-10 sm:px-6 lg:px-8">
         <HeroSection category={category} onCategoryChange={setCategory} />
         <PlacesGrid data={data} status={status} error={error} />
