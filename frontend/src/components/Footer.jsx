@@ -1,5 +1,7 @@
+import { APP_ENV, APP_VERSION } from '../config/environment'
+
 /**
- * Pie de página minimalista.
+ * Pie de página minimalista. Muestra el ambiente y la versión desplegada.
  */
 export default function Footer() {
   return (
@@ -10,6 +12,9 @@ export default function Footer() {
       </p>
       <p className="mt-1 text-xs text-coffee-300">
         Datos geográficos en PostgreSQL/PostGIS · Enriquecimiento con IA · DevOps Taller Final
+      </p>
+      <p className="mt-1 text-xs text-coffee-300">
+        Ambiente: {APP_ENV.label} · versión {APP_VERSION}
       </p>
     </footer>
   )
